@@ -1,3 +1,8 @@
+// Helpers.
+function raizQuadrada(numero) {
+    return numero ** 0.5;
+}
+
 // Questão 1.
 function areaRetangulo(base, altura) {
     return base * altura;
@@ -68,7 +73,7 @@ function distanciaEntreDoisPontos(xDoPonto1, yDoPonto1, xDoPonto2, yDoPonto2) {
     const diferencaDeX = xDoPonto2 - xDoPonto1;
     const diferencaDeY = yDoPonto2 - yDoPonto1;
 
-    return Math.sqrt(diferencaDeX ** 2 + diferencaDeY ** 2);
+    return raizQuadrada(diferencaDeX ** 2 + diferencaDeY ** 2);
 }
 
 console.log("Questão 5");
@@ -217,9 +222,9 @@ function calculoDaRaiz(a, b, c, positivo=true) {
 
     // Os parenteses em "(2 * a)" são necessários.
     if (positivo) {
-         return (-b + Math.sqrt(delta)) / (2 * a);
+        return (-b + raizQuadrada(delta)) / (2 * a);
     } else {
-        return (-b - Math.sqrt(delta)) / (2 * a);
+        return (-b - raizQuadrada(delta)) / (2 * a);
     }
 }
 
