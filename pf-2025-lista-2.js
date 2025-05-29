@@ -28,18 +28,16 @@ igual a ${areaCirculo(10)}cm².`);
 // Basta verificar se a soma de seus ângulos internos equivale a 180°.
 // Nome: "é Triângulo?" ou "isTriangle".
 function eTriangulo(lado1, lado2, lado3) {
-    const soma = lado1 + lado2 + lado3;
+    const umMaisDois = lado1 + lado2 >= lado3;
+    const doisMaisUm = lado2 + lado3 >= lado1;
+    const umMaisTres = lado1 + lado3 >= lado2;
 
-    if (soma === 180) {
-        return true;
-    }
-
-    return false;
+    return (umMaisDois) && (doisMaisUm) && (umMaisTres);
 }
 
 console.log("Questão 3");
 console.log(`Máquina, podendo responder "true" para verdadeiro, e "false" para
-falso, diga-me se um polígono de ângulos internos 45°, 60° e 75° é um triângulo.
+falso, diga-me se um polígono de lados de tamanhos 45, 60 e 75 é um triângulo.
 Máquina: ${eTriangulo(45, 60, 75)}.`);
 
 // Questão 4.
