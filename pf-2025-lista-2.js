@@ -248,31 +248,26 @@ Máquina: ${velocidadeMedia(1000, 5)}.`);
 
 // Questão 14.
 function porExtenso(algarismo) {
-    const error = new TypeError("Valor inexperado, precisa ser um algarismo (de 0 à 9).");
-
-    switch (algarismo) {
-    case 0:
+    if (algarismo === 0) {
         return "zero";
-    case 1:
+    } else if (algarismo === 1) {
         return "um";
-    case 2:
+    } else if (algarismo === 2) {
         return "dois";
-    case 3:
-        return "três";
-    case 4:
+    } else if (algarismo === 3) {
+        return "tres";
+    } else if (algarismo === 4) {
         return "quatro";
-    case 5:
+    } else if (algarismo === 5) {
         return "cinco";
-    case 6:
+    } else if (algarismo === 6) {
         return "seis";
-    case 7:
+    } else if (algarismo === 7) {
         return "sete";
-    case 8:
+    } else if (algarismo === 8) {
         return "oito";
-    case 9:
+    } else if (algarismo === 9) {
         return "nove";
-    default:
-        throw error;
     }
 }
 
