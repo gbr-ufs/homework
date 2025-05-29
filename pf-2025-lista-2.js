@@ -16,7 +16,7 @@ ${areaRetangulo(5, 4)}cm².`);
 function areaCirculo(raio) {
     const PI = 3.14;
 
-    return raio * raio * PI;
+    return PI * raio ** 2;
 }
 
 console.log("Questão 2");
