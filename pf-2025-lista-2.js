@@ -171,12 +171,8 @@ Máquina:
 4. ${ouExclusivo(false, true)}`);
 
 // Questão 10.
-// Pelo o que eu vi, eu acho que a ABNT define sitações assim:
-// BISPO, Kalil (sobrenome em caixa alta)
-// Então vou deixar assim.
-
 function nomeParaCitacao(nome, sobrenome) {
-    return sobrenome.toLocaleUpperCase() + ", " + nome;
+    return sobrenome + ", " + nome;
 }
 
 console.log("Questão 10");
