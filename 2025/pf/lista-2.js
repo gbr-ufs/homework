@@ -191,7 +191,7 @@ Máquina:
 
 // Questão 10.
 function nomeParaCitacao(nome, sobrenome) {
-    return sobrenome + ", " + nome;
+    return sobrenome + ", " + nome[0];
 }
 
 console.log("Questão 10");
