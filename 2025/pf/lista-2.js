@@ -189,15 +189,21 @@ function valorMedioEntreTres(primeiro, segundo, terceiro) {
 
 function maiorQueAMediaTres(primeiro, segundo, terceiro) {
     const media = valorMedioEntreTres(primeiro, segundo, terceiro);
-    let resultado = 0;
+    const primeiroMaior = primeiro > media;
+    const segundoMaior = segundo > media;
+    const terceiroMaior = terceiro > media;
+    const umMaior = primeiroMaior || segundoMaior || terceiroMaior;
+    const doisMaiores = primeiroMaior && segundoMaior || segundoMaior && terceiroMaior || primeiroMaior && terceiroMaior;
+    const tresMaiores = primeiroMaior && segundoMaior && terceiroMaior;
 
-    for (const numero of arguments) {
-        if (numero > media) {
-            resultado++;
-        }
+    if (tresMaiores) {
+        return 3;
     }
-
-    return resultado;
+    else if (doisMaiores) {
+        return 2;
+    } else if (umMaior) {
+        return 1;
+    }
 }
 
 console.log("Questão 11");
