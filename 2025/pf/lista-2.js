@@ -7,6 +7,12 @@ function aoQuadrado(numero) {
     return numero ** 2;
 }
 
+function valorMedioEntreTres(primeiro, segundo, terceiro) {
+    const media = (primeiro, segundo, terceiro) / 3;
+
+    return media;
+}
+
 // Questão 1.
 function areaRetangulo(base, altura) {
     return base * altura;
@@ -181,12 +187,6 @@ reconfiguração dinâmica em redes de sensores sem fio.
 Autor: ${nomeParaCitacao("Kalil", "Bispo")}.`);
 
 // Questão 11.
-function valorMedioEntreTres(primeiro, segundo, terceiro) {
-    const media = (primeiro, segundo, terceiro) / 3;
-
-    return media;
-}
-
 function maiorQueAMediaTres(primeiro, segundo, terceiro) {
     const media = valorMedioEntreTres(primeiro, segundo, terceiro);
     const primeiroMaior = primeiro > media;
