@@ -13,6 +13,19 @@ function valorMedioEntreTres(primeiro, segundo, terceiro) {
     return media;
 }
 
+// Verifica se duas entre três condições são verdadeiras.
+function checkDuasCondicoes(primeira, segunda, terceira) {
+    const primeiraESegunda = primeira && segunda;
+    const segundaETerceira = segunda && terceira;
+    const primeiraETerceira = primeira && terceira;
+
+    if (primeiraESegunda || segundaETerceira || primeiraETerceira) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // Questão 1.
 function areaRetangulo(base, altura) {
     return base * altura;
