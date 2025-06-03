@@ -3,6 +3,10 @@ function raizQuadrada(numero) {
     return numero ** 0.5;
 }
 
+function aoQuadrado(numero) {
+    return numero ** 2;
+}
+
 // Questão 1.
 function areaRetangulo(base, altura) {
     return base * altura;
@@ -128,10 +132,6 @@ console.log(`Máquina, entre 24, 3 e 129, qual é o menor número?
 Máquina: ${qualOMenorEntreTres(24, 3, 129)}.`);
 
 // Questão 8.
-function aoQuadrado(numero) {
-    return numero ** 2;
-}
-
 function aQuartaPotencia(numero) {
     const elevadoAoQuadrado = aoQuadrado(numero);
 
