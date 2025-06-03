@@ -206,7 +206,7 @@ function maiorQueAMediaTres(primeiro, segundo, terceiro) {
     const segundoMaior = segundo > media;
     const terceiroMaior = terceiro > media;
     const umMaior = primeiroMaior || segundoMaior || terceiroMaior;
-    const doisMaiores = primeiroMaior && segundoMaior || segundoMaior && terceiroMaior || primeiroMaior && terceiroMaior;
+    const doisMaiores = checkDuasCondicoes(primeiroMaior, segundoMaior, terceiroMaior);
     const tresMaiores = primeiroMaior && segundoMaior && terceiroMaior;
 
     if (tresMaiores) {
