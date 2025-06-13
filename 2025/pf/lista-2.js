@@ -49,9 +49,11 @@ igual a ${areaCirculo(10)}cm².`);
 // Se a soma de dois lados for maior que um terceiro lado, é um triângulo.
 // Nome: "é Triângulo?" ou "isTriangle".
 const eTriangulo = (lado1, lado2, lado3) => {
-    const umMaisDois = lado1 + lado2 >= lado3;
-    const doisMaisUm = lado2 + lado3 >= lado1;
-    const umMaisTres = lado1 + lado3 >= lado2;
+    const checkLados =
+          (primeiro, segundo, terceiro) => primeiro + segundo >= terceiro;
+    const umMaisDois = checkLados(lado1, lado2, lado3);
+    const doisMaisUm = checkLados(lado2, lado1, lado3);
+    const umMaisTres = checkLados(lado1, lado3, lado2);
 
     return (umMaisDois) && (doisMaisUm) && (umMaisTres);  
 }
