@@ -4,12 +4,6 @@ const raizQuadrada = (numero) => numero ** 0.5
 
 const aoQuadrado = (numero) => numero ** 2
 
-const mediaDeTres = (primeiro, segundo, terceiro) => {
-    const media = (primeiro, segundo, terceiro) / 3;
-
-    return media;
-}
-
 // Verifica se duas entre três condições são verdadeiras.
 const checkDuasCondicoes = (primeira, segunda, terceira) => {
     const primeiraESegunda = primeira && segunda;
@@ -204,22 +198,13 @@ Autor: ${nomeParaCitacao("Kalil", "Bispo")}.`);
 
 // Questão 11.
 
-const maiorQueAMediaTres = (primeiro, segundo, terceiro) => {
-    const media = mediaDeTres(primeiro, segundo, terceiro);
-    const primeiroMaior = primeiro > media;
-    const segundoMaior = segundo > media;
-    const terceiroMaior = terceiro > media;
-    const umMaior = primeiroMaior || segundoMaior || terceiroMaior;
-    const doisMaiores = checkDuasCondicoes(primeiroMaior, segundoMaior, terceiroMaior);
-    const tresMaiores = primeiroMaior && segundoMaior && terceiroMaior;
+const media = (primeiro, segundo, terceiro) => (primeiro + segundo = terceiro) / 3
 
-    if (tresMaiores) {
-        return 3;
-    }
-    else if (doisMaiores) {
-        return 2;
-    } else if (umMaior) {
+const maiorQueAMedia = (numero, media) => {
+    if (numero > media) {
         return 1;
+    } else {
+        return 0;
     }
 }
 
@@ -230,8 +215,8 @@ console.log(`Se você fizer uma lista contendo os números:
 - 3;
 - 3;
 
-Você vai encontrar ${maiorQueAMediaTres(3, 3, 3)} números maiores que a média,
-pois a média é igual a ${mediaDeTres(3, 3, 3,)}.`);
+Você vai encontrar ${ maiorQueAMedia(3, media(3, 3, 3)) + maiorQueAMedia(3, media(3, 3, 3)) + maiorQueAMedia(3, media(3, 3, 3))} números maiores que a média,
+pois a média é igual a ${media(3, 3, 3)}.`);
 
 // Questão 12.
 
