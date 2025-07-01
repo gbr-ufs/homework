@@ -23,6 +23,14 @@ const checkDuasCondicoes = (primeira, segunda, terceira) => {
     }
 }
 
+const modulo = (numero) => {
+    if (numero < 0) {
+        return -numero;
+    } else {
+        return numero;
+    }
+}
+
 // Questão 1.
 
 const areaRetangulo = (base, altura) => base * altura
