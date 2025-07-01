@@ -101,8 +101,8 @@ aos lados, como um triângulo ${classifiqueTriangulo(30, 40, 40)}.`);
 // Questão 5.
 
 const distanciaEntreDoisPontos = (xDoPonto1, yDoPonto1, xDoPonto2, yDoPonto2) => {
-    const diferencaDeX = xDoPonto2 - xDoPonto1;
-    const diferencaDeY = yDoPonto2 - yDoPonto1;
+    const diferencaDeX = modulo(xDoPonto2 - xDoPonto1);
+    const diferencaDeY = modulo(yDoPonto2 - yDoPonto1);
 
     // Paralela à ordenada.
     if (xDoPonto1 === xDoPonto2) {
