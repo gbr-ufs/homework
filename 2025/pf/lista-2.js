@@ -195,7 +195,7 @@ Máquina:
 
 // Questão 10.
 
-const nomeParaCitacao = (nome, sobrenome) => sobrenome + ", " + nome[0]
+const nomeParaCitacao = (nome, sobrenome) => `${sobrenome}, ${nome[0].}`
 
 console.log("Questão 10");
 console.log(`Artigo: SemanticMind: Middleware semântico para suporte a
