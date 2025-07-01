@@ -146,7 +146,7 @@ Máquina: ${quantosIguais(7, 7, 7)}.`);
 
 // Questão 7.
 
-const qualOMenorEntreDois = (primeiro, segundo) => {
+const qualOMenor = (primeiro, segundo) => {
     if (primeiro <= segundo) {
         return primeiro;
     } else {
@@ -154,20 +154,9 @@ const qualOMenorEntreDois = (primeiro, segundo) => {
     }
 }
 
-const qualOMenorEntreTres = (primeiro, segundo, terceiro) => {
-    const entrePrimeiroESegundo = qualOMenorEntreDois(primeiro, segundo);
-    const entreSegundoETerceiro = qualOMenorEntreDois(segundo, terceiro);
-
-    if (entrePrimeiroESegundo > terceiro) {
-        return entreSegundoETerceiro;
-    } else {
-        return entrePrimeiroESegundo;
-    }
-}
-
 console.log("Questão 7");
 console.log(`Máquina, entre 24, 3 e 129, qual é o menor número?
-Máquina: ${qualOMenorEntreTres(24, 3, 129)}.`);
+Máquina: ${qualOMenor(24, qualOMenor(3, 129))}.`);
 
 // Questão 8.
 
