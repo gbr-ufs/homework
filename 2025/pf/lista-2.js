@@ -173,14 +173,8 @@ console.log(`5 elevado à quarta potência é igual a ${aQuartaPotencia(5)}.`);
 
 // XOR.
 const ouExclusivo = (primeiro, segundo) => {
-    const primeiroVerdadeiro = primeiro && !segundo;
-    const segundoVerdadeiro = !primeiro && segundo;
 
-    if (primeiroVerdadeiro || segundoVerdadeiro) {
-        return true;
-    } else {
-        return false;
-    }
+    return (primeiro || segundo) && !(primeiro && segundo);
 }
 
 console.log("Questão 9");
