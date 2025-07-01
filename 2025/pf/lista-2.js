@@ -96,7 +96,14 @@ const distanciaEntreDoisPontos = (xDoPonto1, yDoPonto1, xDoPonto2, yDoPonto2) =>
     const diferencaDeX = xDoPonto2 - xDoPonto1;
     const diferencaDeY = yDoPonto2 - yDoPonto1;
 
-    return raizQuadrada(diferencaDeX ** 2 + diferencaDeY ** 2);
+    // Paralela à ordenada.
+    if (xDoPonto1 === xDoPonto2) {
+        return diferencaDeY;
+    } else if (yDoPonto1 === yDoPonto2) {
+        return diferencaDeX;
+    } else {
+        return raizQuadrada(diferencaDeX ** 2 + diferencaDeY ** 2);
+    }
 }
 
 console.log("Questão 5");
