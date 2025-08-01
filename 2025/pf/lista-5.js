@@ -226,6 +226,20 @@ console.log(`Máquina: ${primosMenoresQueUmNumero(10).join(", ")}.`)
 
 // Questão 8.
 
+const algarismo = (intervalo, numero) => {
+    const numeroStringificado = stringificar(numero);
+    const algarismos = [...numeroStringificado].filter((valor, indice) => {
+        if (indice <= intervalo) {
+            return valor;
+        }
+    })
+
+    // soma também concatena.
+    return algarismos.reduce(soma);
+}
+
+console.log(`Os primeiros dois algarismos do número 200000 são ${algarismo(1, 200000)}.`)
+
 // Questão 9.
 
 // Questão 10.
