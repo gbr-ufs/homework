@@ -70,6 +70,8 @@ const ePrimo = (numero) => {
     }
 }
 
+const stringificar = (numero) => numero + ""
+
 // Contexto.
 
 const carrinho = [
