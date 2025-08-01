@@ -336,13 +336,14 @@ console.log(`Os primeiros dois algarismos do número 200000 são ${algarismo(1, 
 
 // Questão 9.
 
-const numeroDeLetras = (palavra) => {
+const numeroDeLetras = (numero) => {
+    const porExtenso = inFull(numero);
     // O filter é usado para remover os espaços.
-    const letras = [...palavra].filter((letra) => letra !== " ");
+    const letras = [...porExtenso].filter((letra) => letra !== " ");
 
     return numeroDeElementos(letras);
 }
 
-console.log(`"two hundred twenty five" tem ${numeroDeLetras('two hundred twenty five')} letras.`)
+console.log(`225 por extenso em inglês tem ${numeroDeLetras(225)} letras.`)
 
 // Questão 10.
