@@ -72,6 +72,100 @@ const ePrimo = (numero) => {
 
 const stringificar = (numero) => numero + ""
 
+/** Veja: <https://medium.com/@alecgilchrist/converting-numbers-to-english-using-javascript-3967af74db0b>.
+ * Obrigado Alec Gilchrist <https://medium.com/@alecgilchrist>.
+* (Adaptada)
+ *
+* inFull()
+ *
+* "Por extenso" em inglês. Retorna um número por extenso.
+ */
+const inFull = (number) => {
+    const numberToFull = {
+        0: 'zero',
+        1: 'one',
+        2: 'two',
+        3: 'three',
+        4: 'four',
+        5: 'five',
+        6: 'six',
+        7: 'seven',
+        8: 'eight',
+        9: 'nine',
+        10: 'ten',
+        11: 'eleven',
+        12: 'twelve',
+        13: 'thirteen',
+        14: 'fourteen',
+        15: 'fifteen',
+        16: 'sixteen',
+        17: 'seventeen',
+        18: 'eighteen',
+        19: 'nineteen',
+        20: 'twenty',
+        30: 'thirty',
+        40: 'forty',
+        50: 'fifty',
+        60: 'sixty',
+        70: 'seventy',
+        80: 'eighty',
+        90: 'ninety'
+    };
+
+    const numberToPlace = {
+        10: 'ten',
+        100: 'hundred',
+        1000: 'thousand'
+    };
+
+    const recursive = (number) => {
+        if (numberToFull[number]) {
+            return numberToFull[number];
+        } else if (number < 100) {
+            // Divide 21, por exemplo, em 20 e 1.
+            const placeValueNumber = Math.floor(number / 10) * 10;
+            const toBeRecursed = number % 10;
+
+            return numberToFull[placeValueNumber] + " " + numberToFull[toBeRecursed];
+        } else {
+            if (number < 1000) {
+                const place = 100;
+                const placeValueNumber = Math.floor(number / place);
+                const toBeRecursed = number % place;
+                const restOfNumber = recursive(toBeRecursed);
+
+                if (restOfNumber !== "zero") {
+                    return recursive(placeValueNumber) + " " + numberToPlace[place] + " " + restOfNumber;
+                } else {
+                    return recursive(placeValueNumber) + " " + numberToPlace[place]
+                }
+            } else {
+                const increasePlace = (number, place) => {
+                    const placeTimesAThousand = place * 1000;
+
+                    if (placeTimesAThousand <= number) {
+                        increasePlace(number, placeTimesAThousand);
+                    } else {
+                        return place;
+                    }
+                }
+                const place = increasePlace(number, 1000);
+                const placeValueNumber = Math.floor(number / place);
+                const toBeRecursed = number % place;
+                const restOfNumber = recursive(toBeRecursed);
+
+                if (restOfNumber !== "zero") {
+                    return recursive(placeValueNumber) + " " + numberToPlace[place] + " " + restOfNumber;
+                } else {
+                    return recursive(placeValueNumber) + " " + numberToPlace[place]
+                }
+            }
+        }
+    }
+
+    return recursive(number);
+}
+
 // Contexto.
 
 const carrinho = [
