@@ -240,17 +240,17 @@ const ultimoElemento = (lista) => lista.at(-1)
 
 const penultimoElemento = (lista) => lista.at(-2)
 
-console.log(`Temos a seguinte lista de pessoas:`)
-console.log(`${pessoas.join(", ")}.`)
-console.log(`Agora, máquina, me diga qual é a última pessoa dessa lista.`)
-console.log(`Máquina: "${ultimoElemento(pessoas)}".`)
-console.log(`Esplêndido! Agora, a penúltima pessoa.`)
-console.log(`Máquina: "${penultimoElemento(pessoas)}".`)
+console.log(`Temos a seguinte lista de pessoas:
+${pessoas.join(", ")}`)
+console.log(`Agora, máquina, me diga qual é a última pessoa dessa lista.
+Máquina: "${ultimoElemento(pessoas)}".
+Esplêndido! Agora, a penúltima pessoa.
+Máquina: "${penultimoElemento(pessoas)}".`)
 
 // Questão 3.
 
-console.log(`Máquina, em relação à última lista, diga-me, quantos elementos ela tem?`)
-console.log(`Máquina: "${numeroDeElementos(pessoas)}".`)
+console.log(`Máquina, em relação à última lista, diga-me, quantos elementos ela tem?
+Máquina: "${numeroDeElementos(pessoas)}".`)
 
 // Questão 4.
 
@@ -262,8 +262,8 @@ const elementosIguais = (primeiraLista, segundaLista) => {
     }))
 }
 
-console.log(`Máquina, temos as seguintes listas: ${[1, 2, 3, 4].join(", ")} e ${[1, 2, 3, 4].join(", ")}. Diga-me quantos elementos iguais elas têm.`)
-console.log(`Máquina: "${elementosIguais([1, 5, 2, 7], [1, 2, 3, 4])}".`)
+console.log(`Máquina, temos as seguintes listas: ${[1, 5, 2, 7].join(", ")} e ${[1, 2, 3, 4].join(", ")}. Diga-me quantos elementos iguais elas têm.
+Máquina: "${elementosIguais([1, 5, 2, 7], [1, 2, 3, 4])}".`)
 
 // Questão 5.
 
@@ -287,8 +287,8 @@ const divisivelPor3e5 = (numero) => {
 
 const somaDosMultiplosDe3e5 = (lista) => lista.filter(divisivelPor3e5).reduce(soma)
 
-console.log(`Máquina, agora diga-me qual o resultado da soma de todos os múltiplos de 3 e 5 menores que 1000.`)
-console.log(`Máquina: "${somaDosMultiplosDe3e5(intervalo(1, 999))}".`)
+console.log(`Máquina, agora diga-me qual o resultado da soma de todos os múltiplos de 3 e 5 menores que 1000.
+Máquina: "${somaDosMultiplosDe3e5(intervalo(1, 999))}".`)
 
 // Questão 6.
 
@@ -301,8 +301,8 @@ const diferencaEntreOQuadradoDaSomaEDaSomaDosQuadrados = (lista) => quadradoDaSo
 
 console.log(`Máquina, por favor, me responda, qual o resultado da diferença
 entre o quadrado da soma e a soma dos quadrados dos primeiros 10 números
-naturais?`)
-console.log(`Máquina: "${diferencaEntreOQuadradoDaSomaEDaSomaDosQuadrados(intervalo(1, 10))}".`)
+naturais?
+Máquina: "${diferencaEntreOQuadradoDaSomaEDaSomaDosQuadrados(intervalo(1, 10))}".`)
 
 // Questão 7.
 
@@ -315,8 +315,8 @@ const primosMenoresQueUmNumero = (numero) => {
     return intervalo((numero - 1), 2).filter(ePrimo)
 }
 
-console.log(`Máquina, quais são os números primos menores que dez?`)
-console.log(`Máquina: ${primosMenoresQueUmNumero(10).join(", ")}.`)
+console.log(`Máquina, quais são os números primos menores que dez?
+Máquina: ${primosMenoresQueUmNumero(10).join(", ")}.`)
 
 // Questão 8.
 
