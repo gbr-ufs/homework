@@ -347,3 +347,20 @@ const numeroDeLetras = (numero) => {
 console.log(`225 por extenso em inglês tem ${numeroDeLetras(225)} letras.`)
 
 // Questão 10.
+
+const repetirElementos = (lista, vezes) => {
+    // Usa a função "intervalo" para criar uma lista contendo sublistas com o
+    // tamanho certo.
+    const listaComTamanho = lista.map((item) => {
+        return item = intervalo(item, item + (vezes - 1));
+    });
+    // Itera por todas as sublistas e "conserta" o valor delas, que seria o
+    // primeiro elemento, pois queremos repitir.
+    const listaComValorCerto = listaComTamanho.map((sublista) => {
+        return sublista.map((item) => item = sublista[0]);
+        });
+
+    return listaComValorCerto.join();
+}
+
+console.log(repetirElementos([1, 2, 3], 4))
