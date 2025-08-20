@@ -1,8 +1,4 @@
-// Helpers.
-
-const raizQuadrada = (numero) => numero ** 0.5
-
-const aoQuadrado = (numero) => numero ** 2
+import { raizQuadrada, aoQuadrado } from "./helpers.js"
 
 // Verifica se duas entre três condições são verdadeiras.
 const checkDuasCondicoes = (primeira, segunda, terceira) => {
