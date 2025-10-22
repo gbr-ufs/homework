@@ -17,6 +17,7 @@
   in {
     devShell.${system} = pkgs.mkShell {
       packages = with pkgs; [
+        jdk24
         nodejs
         vtsls
       ];
