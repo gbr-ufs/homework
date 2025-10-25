@@ -5,23 +5,22 @@
 {
   description = "Exercícios resolvidos.";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-  };
+  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable"; };
 
   outputs = { self, nixpkgs }:
-  let
-  system = builtins.currentSystem; # Impureza aqui.
-  pkgs = nixpkgs.legacyPackages.${system};
+    let
+      system = builtins.currentSystem; # Impureza aqui.
+      pkgs = nixpkgs.legacyPackages.${system};
 
-  in {
-    devShell.${system} = pkgs.mkShell {
-      packages = with pkgs; [
-        gcc
-        jdk24
-        nodejs
-        vtsls
-      ];
+    in {
+      devShell.${system} = pkgs.mkShell {
+        packages = with pkgs; [
+          clang # Language server.
+          gcc
+          jdk24
+          nodejs
+          vtsls
+        ];
+      };
     };
-  };
 }
