@@ -5,3 +5,6 @@
 
 # Ignora os resultados de compilação de Java.
 *.class
+
+# Ignora os resultados de compilação de C.
+*.out
