@@ -1,5 +1,6 @@
 # Ignora todos os arquivos ocultos exceto aqueles sob controle de versão.
 .*
+!.editorconfig
 !.envrc
 !.gitignore
 
