@@ -17,12 +17,8 @@ public class Vinho {
             valorTotal = valor;
             System.out.println(mensagemValor + valor);
             System.out.println(mensagemValorTotal + valorTotal);
-        } else if (quantidade % 3 == 0) {
-            quantidade -= quantidade / 3;
-            valorTotal = valor * quantidade;
-            System.out.println(mensagemValor + valor);
-            System.out.println(mensagemValorTotal + valorTotal);
         } else {
+            quantidade -= quantidade / 3;
             valorTotal = valor * quantidade;
             System.out.println(mensagemValor + valor);
             System.out.println(mensagemValorTotal + valorTotal);
