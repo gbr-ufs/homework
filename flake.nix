@@ -17,7 +17,7 @@
         packages = with pkgs; [
           clang # Language server.
           gcc
-          jdk24
+          jdk25_headless
           nodejs
           vtsls
         ];
