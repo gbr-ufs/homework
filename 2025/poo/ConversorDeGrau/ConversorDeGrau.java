@@ -1,5 +1,3 @@
-import java.io.Console;
-
 interface Temperatura {
     public double paraCelsius();
     public double paraFahrenheit();
@@ -11,7 +9,7 @@ class Celsius implements Temperatura {
     public Celsius(double valor) {
         this.valor = valor;
     }
-    
+
     public double paraCelsius() {
         return valor;
     }
@@ -41,10 +39,9 @@ public class ConversorDeGrau {
     public static void main(String[] args) throws Exception{
         double valor;
         String tipo;
-        Console console = System.console();
 
-        valor = Double.parseDouble(console.readLine("Qual o valor da sua temperatura? "));
-        tipo = console.readLine("Seu valor está em Celsius ou Fahrenheit? ");
+        valor = Double.parseDouble(IO.readln("Qual o valor da sua temperatura? "));
+        tipo = IO.readln("Seu valor está em Celsius ou Fahrenheit? ");
 
         if (tipo.equals("Celsius")) {
             System.out.println("Seu valor será convertido para Fahrenheit");
