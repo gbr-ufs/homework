@@ -1,5 +1,3 @@
-import java.io.Console;
-
 class Ingresso {
     private int idade = 0;
     private double preco = 0.00;
@@ -33,10 +31,9 @@ public class Circo {
         double descontoMenor = 0.1;
         String mensagem = "Preço descontado: R$";
         Ingresso ingresso = new Ingresso();
-        Console console = System.console();
 
-        ingresso.setIdade(Integer.parseInt(console.readLine("Qual a sua idade? ")));
-        ingresso.setPreco(Double.parseDouble(console.readLine("Qual o preço do seu ingresso? R$")));
+        ingresso.setIdade(Integer.parseInt(IO.readln("Qual a sua idade? ")));
+        ingresso.setPreco(Double.parseDouble(IO.readln("Qual o preço do seu ingresso? R$")));
 
         // Idade negativa, preço negativo.
         if (ingresso.getIdade() < 0 || ingresso.getPreco() < 0) {
