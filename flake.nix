@@ -19,6 +19,7 @@
           gcc
           jdk25_headless
           nodejs
+          python3
           vtsls
         ];
       };
