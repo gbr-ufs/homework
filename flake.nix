@@ -18,6 +18,7 @@
           clang # Language server.
           gcc
           jdk25_headless
+          jdt-language-server
           nodejs
           python3
           vtsls
