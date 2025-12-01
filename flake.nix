@@ -17,6 +17,7 @@
         packages = with pkgs; [
           clang # Language server.
           gcc
+          gdb
           jdk25_headless
           jdt-language-server
           nodejs
