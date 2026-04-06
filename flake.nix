@@ -1,29 +1,36 @@
-# Este flake é impuro porque ele usa a função "currentSystem".
-# Isso é melhor do que ter que depender no flake-utils, e funciona como uma
-# forma de "protesto" contra a verbosidade dos flakes.
-
 {
   description = "Exercícios resolvidos.";
-
-  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable"; };
-
-  outputs = { self, nixpkgs }:
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/master";
+  outputs =
+    { nixpkgs, ... }:
     let
-      system = builtins.currentSystem; # Impureza aqui.
-      pkgs = nixpkgs.legacyPackages.${system};
-
-    in {
-      devShell.${system} = pkgs.mkShell {
-        packages = with pkgs; [
-          clang # Language server.
-          gcc
-          gdb
-          jdk25_headless
-          jdt-language-server
-          nodejs
-          python3
-          vtsls
-        ];
-      };
+      inherit (nixpkgs) lib;
+      forAllSystems = lib.genAttrs lib.systems.flakeExposed;
+    in
+    {
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
+            packages = with pkgs; [
+              cargo
+              clang-tools
+              jdk25_headless
+              jdt-language-server
+              nixd
+              nixfmt
+              nodejs
+              python3
+              ruff
+              rustc
+              ty
+              vtsls
+            ];
+          };
+        }
+      );
     };
 }
