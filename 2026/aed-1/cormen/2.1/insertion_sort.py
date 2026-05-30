@@ -1,33 +1,33 @@
 #!/usr/bin/env python3
 
 
-def insertion_sort(a: list[int], n: int) -> None:
+def insertion_sort(A: list[int], n: int) -> None:
     for i in range(n):
-        key: int = a[i]
+        key: int = A[i]
         j: int = i - 1
 
-        while j >= 0 and a[j] > key:
-            a[j + 1] = a[j]
+        while j >= 0 and A[j] > key:
+            A[j + 1] = A[j]
             j = j - 1
 
-        a[j + 1] = key
+        A[j + 1] = key
 
 
 def main() -> None:
-    a: list[int] = [4, 3, 1, 6, 10]
-    n: int = len(a)
+    A: list[int] = [4, 3, 1, 6, 10]
+    n: int = len(A)
 
     print("Unsorted.")
 
     for i in range(n):
-        print(a[i])
+        print(A[i])
 
-    insertion_sort(a, n)
+    insertion_sort(A, n)
 
     print("Sorted.")
 
     for i in range(n):
-        print(a[i])
+        print(A[i])
 
 
 if __name__ == "__main__":
