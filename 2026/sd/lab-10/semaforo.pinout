@@ -1,0 +1,7 @@
+CLK = clk_1hz;
+RST = btn0;
+BTN = btn2;
+VE_G = led0;
+VE_R = led1;
+PE_G = led2;
+PE_R = led3;
