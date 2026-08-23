@@ -24,9 +24,7 @@
               nixfmt
               nodejs
               rassumfrassum
-              ruff
               rustc
-              ty
               uv
               vtsls
             ];
