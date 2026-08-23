@@ -24,6 +24,7 @@
               nixfmt
               nodejs
               python3
+              rassumfrassum
               ruff
               rustc
               ty
