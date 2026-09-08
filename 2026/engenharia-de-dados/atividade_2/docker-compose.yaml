@@ -1,0 +1,45 @@
+services:
+  atividade_2:
+    build:
+      context: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+      valkey:
+        condition: service_healthy
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+    volumes:
+      - ./src:/app/src
+  postgres:
+    env_file:
+      - .env
+    healthcheck:
+      interval: 10s
+      retries: 5
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      timeout: 5s
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql
+  valkey:
+    env_file:
+      - .env
+    healthcheck:
+      interval: 10s
+      retries: 5
+      test: ["CMD", "valkey-cli", "ping"]
+      timeout: 5s
+    image: valkey/valkey:latest
+    ports:
+      - 6379:6379
+    volumes:
+      - valkey:/data
+
+volumes:
+  postgres:
+  valkey:

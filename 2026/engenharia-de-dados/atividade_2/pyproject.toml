@@ -1,0 +1,31 @@
+[project]
+name = "atividade-2"
+version = "0.1.0"
+description = "Segund atividade da disciplina 'Engenharia de Dados'"
+readme = "README.md"
+authors = [
+    { name = "Gabriel Santos de Souza", email = "gabriel.santosdesouza@dcomp.ufs.br" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.141.1",
+    "psycopg[binary]>=3.3.5",
+    "sqlmodel>=0.0.42",
+    "valkey>=6.1.1",
+]
+
+[project.scripts]
+atividade-2 = "atividade_2.main:app"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.6",
+    "ty>=0.0.79",
+]
+
+[tool.fastapi]
+entrypoint = "atividade_2.main:app"
