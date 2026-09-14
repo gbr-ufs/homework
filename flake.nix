@@ -12,6 +12,15 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+          emacsSettings = pkgs.writeText "dir-locals.el" ''
+            ((nil . ((eval . (with-eval-after-load 'apheleia
+                       (add-to-list 'apheleia-formatters
+                         '(verible . ("verible-verilog-format" "--inplace" filepath)))))))
+             (verilog-mode . ((apheleia-formatter . (verible))
+                              (eglot-server-programs . ((verilog-mode . ("verible-verilog-ls"))))))
+             (verilog-ts-mode . ((apheleia-formatter . (verible))
+                                 (eglot-server-programs . ((verilog-mode . ("verible-verilog-ls")))))))
+          '';
         in
         {
           default = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
@@ -31,6 +40,9 @@
               verible
               vtsls
             ];
+            shellHook = ''
+              ln -sf ${emacsSettings} .dir-locals.el
+            '';
           };
         }
       );
