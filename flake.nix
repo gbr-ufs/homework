@@ -18,6 +18,7 @@
             packages = with pkgs; [
               cargo
               clang-tools
+              iverilog
               jdk25_headless
               jdt-language-server
               nixd
