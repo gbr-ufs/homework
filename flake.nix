@@ -28,6 +28,7 @@
               rassumfrassum
               rustc
               uv
+              verible
               vtsls
             ];
           };
