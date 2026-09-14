@@ -23,6 +23,7 @@
               nixd
               nixfmt
               nodejs
+              rars
               rassumfrassum
               rustc
               uv
