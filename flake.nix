@@ -28,6 +28,7 @@
               asmfmt
               cargo
               clang-tools
+              gnumake
               iverilog
               jdk25_headless
               jdt-language-server
