@@ -25,6 +25,7 @@
         {
           default = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
             packages = with pkgs; [
+              asmfmt
               cargo
               clang-tools
               iverilog
