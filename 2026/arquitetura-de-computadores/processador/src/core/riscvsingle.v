@@ -8,13 +8,14 @@ module riscvsingle (
     WriteData,
     input  logic [31:0] ReadData
 );
-  logic PCSrc, ALUSrc, RegWrite, Jump, Zero;
-  logic [1:0] ResultSrc, ImmSrc;
+  logic [1:0] PCSrc, ResultSrc, ImmSrc, Jump;
+  logic ALUSrc, RegWrite, Zero;
   logic [2:0] ALUControl;
   controller c (
       Instr[6:0],
       Instr[14:12],
       Instr[30],
+      Instr[25],
       Zero,
       ResultSrc,
       MemWrite,

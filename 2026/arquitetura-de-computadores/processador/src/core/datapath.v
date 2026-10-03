@@ -2,8 +2,8 @@ module datapath (
     input logic clk,
     reset,
     input logic [1:0] ResultSrc,
-    input logic PCSrc,
-    ALUSrc,
+    input logic [1:0] PCSrc,
+    input logic ALUSrc,
     input logic RegWrite,
     input logic [1:0] ImmSrc,
     input logic [2:0] ALUControl,
@@ -36,9 +36,10 @@ module datapath (
       ImmExt,
       PCTarget
   );
-  mux2 #(32) pcmux (
+  mux3 #(32) pcmux (
       PCPlus4,
       PCTarget,
+      ALUResult,
       PCSrc,
       PCNext
   );
