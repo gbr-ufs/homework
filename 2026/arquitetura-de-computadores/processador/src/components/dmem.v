@@ -7,6 +7,8 @@ module dmem (
 );
   logic [31:0] RAM[63:0];
 
+  initial $readmemh("src/tests/matrix_multiply_data.txt", RAM);
+
   assign rd = RAM[a[31:2]];  // Word aligned.
 
   always_ff @(posedge clk) if (we) RAM[a[31:2]] <= wd;
