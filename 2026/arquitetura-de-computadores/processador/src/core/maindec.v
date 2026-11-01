@@ -22,6 +22,6 @@ module maindec (
       7'b0010011: controls = 12'b1_00_1_0_00_0_10_00;  // I-type ALU
       7'b1101111: controls = 12'b1_11_0_0_10_0_00_01;  // jal
       7'b1100111: controls = 12'b1_00_1_0_10_0_00_10;  // jalr
-      default:    controls = 12'bx_xx_x_x_xx_x_xx_xx;  // ???
+      default:    controls = 12'bx_xx_x_x_xx_x_xx_xx;  // Don't care.
     endcase
 endmodule

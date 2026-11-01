@@ -25,7 +25,7 @@ module aludec (
         3'b101: ALUControl = 3'b110;  // srl, srli
         3'b110: ALUControl = 3'b011;  // or, ori
         3'b111: ALUControl = 3'b010;  // and, andi
-        default: ALUControl = 3'bxxx;  // ???
+        default: ALUControl = 3'bxxx;  // Don't care.
       endcase
     endcase
 endmodule
