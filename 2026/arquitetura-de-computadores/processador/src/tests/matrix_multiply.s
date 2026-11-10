@@ -36,12 +36,12 @@ matriz_C:
 # Ponto de entrada do programa.
 main:
 	# Inicializa stack pointer.
-        # 256 é o endereço do fim da memória de dados do processador (veja: dmem.v).
+	# 256 é o endereço do fim da memória de dados do processador (veja: dmem.v).
 	li   sp, 256
 
 	# Carrega argumentos.
-        # Cada matriz tem dimensão 4 x 4 (16 words). Como cada word ocupa 4 bytes, a gente
-        # carrega as matrizes de 64 em 64.
+	# Cada matriz tem dimensão 4 x 4 (16 words). Como cada word ocupa 4 bytes, a gente
+	# carrega as matrizes de 64 em 64.
 	li   a0, 0
 	li   a1, 64
 	li   a2, 128
@@ -50,8 +50,8 @@ main:
 	jal  ra, square_matrix_multiply_recursive
 
 	# Sinaliza fim da execução.
-        # 1 é um valor arbitrário que é usado pela testbench para verificar se a execução terminou.
-        # 192 foi escolhido pois a matriz C termina no endereço 191. Então, 192 é o próximo endereço livre.
+	# 1 é um valor arbitrário que é usado pela testbench para verificar se a execução terminou.
+	# 192 foi escolhido pois a matriz C termina no endereço 191. Então, 192 é o próximo endereço livre.
 	li   t0, 1
 	sw   t0, 192(zero)
 
@@ -70,12 +70,12 @@ done:
 # Retorna:
 # - a2: Endereço base da matriz C (resultado).
 square_matrix_multiply_recursive:
-        # Caso recursivo.
+	# Caso recursivo.
 	li   t0, 1
 	bne  a3, t0, recursive
 
-        # Caso base:
-        # A, B e C são matrizes 1 x 1. Então, a multiplicação é simplesmente C[0][0] += A[0][0] * B[0][0].
+	# Caso base:
+	# A, B e C são matrizes 1 x 1. Então, a multiplicação é simplesmente C[0][0] += A[0][0] * B[0][0].
 	lw   t0, 0(a0)       # t0 = A[0][0]
 	lw   t1, 0(a1)       # t1 = B[0][0]
 	mul  t2, t0, t1      # t2 = A[0][0] * B[0][0]
@@ -95,8 +95,8 @@ square_matrix_multiply_recursive:
 # Retorna:
 # - a2: Endereço base da matriz C (resultado).
 recursive:
-        # Alocando espaço na pilha. Por convenção, a pilha no RISC-V é descrescente.
-        # 32 porque vamos salvar 8 registradores de 4 bytes cada (a função faz 8 chamadas recursivas).
+	# Alocando espaço na pilha. Por convenção, a pilha no RISC-V é descrescente.
+	# 32 porque vamos salvar 8 registradores de 4 bytes cada (a função faz 8 chamadas recursivas).
 	addi sp, sp, -32
 	sw   ra, 28(sp) # Retorno.
 	sw   s0, 24(sp) # Endereço base da matriz A.
@@ -106,29 +106,29 @@ recursive:
 	sw   s4, 8(sp)  # Dimensão da matriz original (N global).
 	sw   s5, 4(sp)  # Passo horizontal para acessar os blocos da direita.
 	sw   s6, 0(sp)  # Passo vertical para acessar os blocos de baixo.
-        # Essa questão de "direita" e "baixo" vem do fato de que esse algoritmo divide a matriz em
-        # 4 blocos (A11, A12, A21, A22) e (B11, B12, B21, B22).
-        # Na memória, a matriz é armazenada em linha reta, então para ir para um bloco na direita,
-        # a gente precisa pular n/2 colunas para a direita.
-        # Enquanto para ir para um bloco embaixo, a gente precisa pular n/2 linhas pra baixo.
+	# Essa questão de "direita" e "baixo" vem do fato de que esse algoritmo divide a matriz em
+	# 4 blocos (A11, A12, A21, A22) e (B11, B12, B21, B22).
+	# Na memória, a matriz é armazenada em linha reta, então para ir para um bloco na direita,
+	# a gente precisa pular n/2 colunas para a direita.
+	# Enquanto para ir para um bloco embaixo, a gente precisa pular n/2 linhas pra baixo.
 
-        # Divisão da matriz nos 4 blocos.
+	# Divisão da matriz nos 4 blocos.
 
-        # Guardando os registradores que serão usados para armazenar os argumentos das chamadas recursivas.
+	# Guardando os registradores que serão usados para armazenar os argumentos das chamadas recursivas.
 	mv   s0, a0
 	mv   s1, a1
 	mv   s2, a2
-        # Cálculo da dimensão da submatriz (N atual) e dos passos para acessar os blocos.
+	# Cálculo da dimensão da submatriz (N atual) e dos passos para acessar os blocos.
 	srli s3, a3, 1
-        # Preservação da largura total.
+	# Preservação da largura total.
 	mv   s4, a4
 
-        # Cálcuo do deslocamento para a direita.
-        # É um shift para a esquerda de 2 bits porque cada elemento da matriz é uma word (4 bytes).
+	# Cálcuo do deslocamento para a direita.
+	# É um shift para a esquerda de 2 bits porque cada elemento da matriz é uma word (4 bytes).
 	slli s5, s3, 2
 
-        # Cálculo do deslocamento para baixo.
-        # Multiuplica pela largura total da matriz para pular n/2 linhas para baixo.
+	# Cálculo do deslocamento para baixo.
+	# Multiuplica pela largura total da matriz para pular n/2 linhas para baixo.
 	mul  s6, s5, s4
 
 	# C11 += A11 * B11
@@ -199,7 +199,7 @@ recursive:
 	mv   a4, s4
 	jal  ra, square_matrix_multiply_recursive
 
-        # Desalocando espaço na pilha e restaurando os registradores salvos.
+	# Desalocando espaço na pilha e restaurando os registradores salvos.
 	lw   ra, 28(sp)
 	lw   s0, 24(sp)
 	lw   s1, 20(sp)

@@ -6,16 +6,16 @@ Implementação em SystemVerilog de um microprocessador de ciclo único baseado 
 
 Seguindo a nomenclatura padrão do RISC-V, este processador é um RV32IM.
 
-RV
+RV 
 RISC-V.
 
-32
+32 
 32 bits.
 
-I
+I 
 Suporta números inteiros.
 
-M
+M 
 Suporta multiplicação de inteiros.
 
 ## Instruções Adicionadas
@@ -26,7 +26,7 @@ Além das instruções suportadas pelo processador disponibilizado pelo livro, e
 - `jalr`: Saldo indireto via registrador.
 - `bne`: Desvio condicional se não igual.
 - `sll`, `slli`: Deslocamento para a esquerda.
-- `srl, srli`: Deslocamento para a direita.
+- `srl`, `srli`: Deslocamento para a direita.
 - `andi`: `and` imediato.
 - `ori`: `or` imediato.
 - `slti`: `slt` imediato.
